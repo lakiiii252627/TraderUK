@@ -45,8 +45,8 @@
       justify-content: space-between;
       border-bottom: 1px solid var(--line);
     }
-    .brand { font: 700 19px var(--display); letter-spacing: 0; }
-    .brand-mark { color: var(--green); }
+    .brand { display: inline-flex; align-items: center; font: 700 19px var(--display); letter-spacing: 0; }
+    .brand-mark { margin-left: 4px; color: var(--green); }
     .nav { display: flex; gap: 34px; align-items: center; font-size: 13px; color: #b1bbb3; }
     .nav a:hover { color: var(--ink); }
     .nav-cta {
@@ -81,6 +81,7 @@
       font: 600 clamp(62px, 8vw, 112px)/.86 var(--display);
       letter-spacing: 0;
     }
+    h1 span { color: var(--green); }
     .hero-copy {
       max-width: 420px;
       margin: 25px 0 30px;
@@ -151,7 +152,10 @@
     h2 { margin: 0; font: 500 34px/1.1 var(--display); letter-spacing: 0; }
     .section-heading p { margin: 0 0 3px; color: var(--muted); font-size: 12px; }
     .market-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; border: 1px solid var(--line); background: var(--line); }
-    .market-card { min-height: 252px; padding: 22px 21px 24px; background: linear-gradient(150deg, #1b241e, #151b17 78%); transition: background .2s, transform .2s; }
+    .market-card { min-height: 252px; padding: 22px 21px 24px; background: linear-gradient(150deg, #1b241e, #151b17 78%); transition: background .2s, transform .2s; animation: rise-in .65s ease-out both; }
+    .market-card:nth-child(2) { animation-delay: .08s; }
+    .market-card:nth-child(3) { animation-delay: .16s; }
+    .market-card:nth-child(4) { animation-delay: .24s; }
     .market-card:hover { background: linear-gradient(150deg, #222e25, #171e19 78%); transform: translateY(-3px); }
     .market-top { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 10px; text-transform: uppercase; }
     .market-symbol { display: grid; place-items: center; width: 40px; height: 40px; margin: 27px 0 19px; border: 1px solid #465546; color: var(--green); font: 600 13px var(--display); }
@@ -166,13 +170,17 @@
     .contact .eyebrow { margin-bottom: 10px; }
     .contact-link { display: inline-flex; align-items: center; gap: 12px; color: var(--green); font: 500 19px var(--display); }
     .contact-link:hover { color: #d0ff91; }
+    .disclaimer { padding: 18px 0; border-top: 1px solid var(--line); color: #a8b3a9; font-size: 12px; line-height: 1.7; }
+    .disclaimer strong { color: var(--ink); }
     .footer { padding: 22px 0 30px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; }
 
     @keyframes reveal { from { opacity: .45; transform: scale(1.06); } to { opacity: 1; transform: scale(1.02); } }
+    @keyframes rise-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @media (max-width: 800px) {
       .shell { width: min(100% - 40px, 600px); }
-      .nav { gap: 18px; }
-      .nav a:not(.nav-cta) { display: none; }
+      .topbar { padding: 12px 0; flex-wrap: wrap; gap: 12px; }
+      .nav { width: 100%; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+      .nav a:not(.nav-cta) { display: inline; }
       .hero { grid-template-columns: 1fr; gap: 32px; padding: 56px 0 38px; }
       .hero-visual { min-height: 330px; }
       .markets { padding: 56px 0 62px; }
@@ -205,7 +213,7 @@
 </head>
 <body>
   <header class="shell topbar">
-    <a class="brand" href="#top" aria-label="TradeUK home">TradeUK<span class="brand-mark">.</span></a>
+    <a class="brand" href="#top" aria-label="TradeUK home">Trade<span class="brand-mark">UK</span></a>
     <nav class="nav" aria-label="Main navigation">
       <a href="#markets">Markets</a>
       <a href="#about">About</a>
@@ -218,7 +226,7 @@
     <section class="shell hero" aria-labelledby="hero-title">
       <div>
         <p class="eyebrow">Independent trading business</p>
-        <h1 id="hero-title">TRADE<br>WITH<br>CLARITY.</h1>
+        <h1 id="hero-title">TRADE<br>WITH<br><span>CLARITY.</span></h1>
         <p class="hero-copy">A disciplined, research-led approach to navigating global markets. TradeUK is a trading business, not a financial advisory service.</p>
         <div class="hero-actions">
           <a class="button-primary" href="#markets">Explore Markets <span aria-hidden="true">↗</span></a>
@@ -284,6 +292,7 @@
     </section>
   </main>
 
+  <div class="shell disclaimer"><strong>Risk notice:</strong> TradeUK does not provide financial advice and does not guarantee returns. Trading involves risk.</div>
   <footer class="shell footer"><span>TradeUK. &copy; 2026</span><span>Trading business. Not financial advisory. Market figures are illustrative only.</span></footer>
 </body>
 </html>
