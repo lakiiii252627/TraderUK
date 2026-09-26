@@ -170,6 +170,8 @@
     .about-copy p { margin: 0 0 15px; }
     .contact { padding: 34px 0 42px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .contact .eyebrow { margin-bottom: 10px; }
+    .contact-email { display: grid; gap: 8px; }
+    .contact-email-label { color: var(--muted); font-size: 11px; text-transform: uppercase; }
     .contact-link { display: inline-flex; align-items: center; gap: 12px; color: var(--green); font: 500 19px var(--display); }
     .contact-link:hover { color: #d0ff91; }
     .disclaimer { padding: 18px 0; border-top: 1px solid var(--line); color: #a8b3a9; font-size: 12px; line-height: 1.7; }
@@ -291,19 +293,22 @@
       <div class="about-grid">
         <div><p class="eyebrow">The TradeUK approach</p><h2 id="about-title">About TradeUK</h2></div>
         <div class="about-copy">
-          <p>TradeUK is an independent trading business built around preparation, risk awareness, and a clear reading of market conditions. We focus on process over prediction and discipline over noise.</p>
-          <p>Our work is proprietary trading and market research. We do not provide investment recommendations, manage client funds, or offer financial advisory services. Market information shown here is illustrative and is not a promise of future results.</p>
+          <p>TradeUK is a trading business focused on proprietary trading and market research. Our approach centers on preparation, risk awareness, and careful analysis of market conditions.</p>
+          <p>Information on this website is general in nature and is not an offer or recommendation to trade.</p>
         </div>
       </div>
     </section>
 
     <section class="shell contact" id="contact" aria-labelledby="contact-title">
-      <div><p class="eyebrow">Start a conversation</p><h2 id="contact-title">Contact TradeUK</h2></div>
-      <a class="contact-link" href="mailto:hello@tradeuk.example">hello@tradeuk.example <span aria-hidden="true">↗</span></a>
+      <div><p class="eyebrow">Business enquiries</p><h2 id="contact-title">Contact TradeUK</h2></div>
+      <div class="contact-email">
+        <span class="contact-email-label">Email</span>
+        <a class="contact-link" href="mailto:hello@tradeuk.example">hello@tradeuk.example <span aria-hidden="true">↗</span></a>
+      </div>
     </section>
   </main>
 
-  <div class="shell disclaimer"><strong>Risk notice:</strong> TradeUK does not provide financial advice and does not guarantee returns. Trading involves risk.</div>
+  <div class="shell disclaimer"><strong>Important information:</strong> TradeUK is a trading business and does not provide financial advice, investment recommendations, or guaranteed returns. Trading involves risk.</div>
   <footer class="shell footer"><span>TradeUK. &copy; 2026</span><span>Trading business. Not financial advisory. Market figures are illustrative only.</span></footer>
 </body>
 </html>
