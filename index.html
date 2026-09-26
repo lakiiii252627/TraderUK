@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101411">
+  <meta name="description" content="TradeUK is an independent trading business focused on market research and disciplined execution. Not financial advisory.">
+  <title>TradeUK — Trade With Clarity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #eff3ec;
+      --muted: #9ba79d;
+      --paper: #101411;
+      --surface: #171e19;
+      --line: #2b352e;
+      --green: #b9f36b;
+      --green-deep: #b9f36b;
+      --red: #e77967;
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: 'DM Sans', sans-serif;
+      --display: 'Space Grotesk', sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: radial-gradient(ellipse at 76% 7%, rgba(72, 103, 64, .14), transparent 31%), var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .shell { width: min(1320px, calc(100% - 64px)); margin: 0 auto; }
+
+    .topbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { font: 700 19px var(--display); letter-spacing: 0; }
+    .brand-mark { color: var(--green); }
+    .nav { display: flex; gap: 34px; align-items: center; font-size: 13px; color: #b1bbb3; }
+    .nav a:hover { color: var(--ink); }
+    .nav-cta {
+      border: 1px solid #526052;
+      padding: 10px 17px;
+      transition: background .2s, color .2s;
+    }
+    .nav-cta:hover { background: var(--green); border-color: var(--green); color: #101411 !important; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1.02fr;
+      gap: 48px;
+      align-items: center;
+      padding: 63px 0 58px;
+      min-height: 530px;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 24px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ''; width: 22px; height: 2px; background: var(--green); }
+    h1 {
+      margin: 0;
+      font: 600 clamp(62px, 8vw, 112px)/.86 var(--display);
+      letter-spacing: 0;
+    }
+    .hero-copy {
+      max-width: 420px;
+      margin: 25px 0 30px;
+      color: #b0bbb1;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 22px; }
+    .button-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      min-height: 48px;
+      padding: 0 18px;
+      background: var(--green);
+      color: #101411;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background .2s, transform .2s;
+    }
+    .button-primary:hover { background: #d0ff91; transform: translateY(-2px); }
+    .button-primary span { font-size: 18px; line-height: 1; }
+    .hero-note { color: var(--muted); font-size: 12px; }
+
+    .hero-visual {
+      position: relative;
+      min-height: 395px;
+      height: 100%;
+      overflow: hidden;
+      background: #26372e;
+      isolation: isolate;
+    }
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(90deg, rgba(17, 29, 22, .37), rgba(17, 29, 22, .05) 72%),
+        url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1600&q=85') center 48% / cover;
+      transform: scale(1.02);
+      animation: reveal 1s ease-out both;
+    }
+    .visual-caption {
+      position: absolute;
+      bottom: 22px;
+      left: 24px;
+      color: white;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+    .visual-caption strong { display: block; margin-bottom: 5px; font: 500 21px var(--display); text-transform: none; }
+    .visual-index {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      padding: 10px 12px;
+      background: rgba(18, 25, 20, .92);
+      border: 1px solid rgba(190, 209, 188, .2);
+      min-width: 136px;
+    }
+    .visual-index small { display: block; color: #aab5ab; font-size: 10px; }
+    .visual-index b { display: block; margin-top: 4px; font: 600 18px var(--display); }
+    .visual-index em { color: var(--green); font-size: 11px; font-style: normal; }
+
+    .markets { padding: 73px 0 82px; }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 25px; }
+    .section-heading .eyebrow { margin-bottom: 12px; }
+    h2 { margin: 0; font: 500 34px/1.1 var(--display); letter-spacing: 0; }
+    .section-heading p { margin: 0 0 3px; color: var(--muted); font-size: 12px; }
+    .market-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+    .market-card { min-height: 252px; padding: 22px 21px 24px; background: linear-gradient(150deg, #1b241e, #151b17 78%); transition: background .2s, transform .2s; }
+    .market-card:hover { background: linear-gradient(150deg, #222e25, #171e19 78%); transform: translateY(-3px); }
+    .market-top { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 10px; text-transform: uppercase; }
+    .market-symbol { display: grid; place-items: center; width: 40px; height: 40px; margin: 27px 0 19px; border: 1px solid #465546; color: var(--green); font: 600 13px var(--display); }
+    .market-card h3 { margin: 0 0 9px; color: var(--ink); font: 500 21px var(--display); }
+    .market-card p { min-height: 44px; margin: 0; color: #a8b3a9; font-size: 12px; line-height: 1.65; }
+    .market-instruments { display: block; margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); color: #d0d8d0; font-size: 10px; line-height: 1.6; }
+    .about { padding: 52px 0 78px; border-top: 1px solid var(--line); }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 72px; align-items: start; }
+    .about-copy { max-width: 650px; color: #b0bbb1; font-size: 15px; line-height: 1.8; }
+    .about-copy p { margin: 0 0 15px; }
+    .contact { padding: 34px 0 42px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .contact .eyebrow { margin-bottom: 10px; }
+    .contact-link { display: inline-flex; align-items: center; gap: 12px; color: var(--green); font: 500 19px var(--display); }
+    .contact-link:hover { color: #d0ff91; }
+    .footer { padding: 22px 0 30px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; }
+
+    @keyframes reveal { from { opacity: .45; transform: scale(1.06); } to { opacity: 1; transform: scale(1.02); } }
+    @media (max-width: 800px) {
+      .shell { width: min(100% - 40px, 600px); }
+      .nav { gap: 18px; }
+      .nav a:not(.nav-cta) { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 32px; padding: 56px 0 38px; }
+      .hero-visual { min-height: 330px; }
+      .markets { padding: 56px 0 62px; }
+      .about { padding: 42px 0 56px; }
+      .about-grid { grid-template-columns: 1fr; gap: 22px; }
+      .contact { align-items: flex-start; flex-direction: column; }
+      .market-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .shell { width: calc(100% - 32px); }
+      .topbar { min-height: 66px; }
+      .hero { padding-top: 47px; }
+      h1 { font-size: 68px; }
+      .hero-copy { font-size: 15px; }
+      .hero-actions { gap: 13px; }
+      .hero-note { font-size: 11px; }
+      .hero-visual { min-height: 275px; }
+      .visual-index { top: 14px; right: 14px; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 10px; }
+      h2 { font-size: 29px; }
+      .market-grid { grid-template-columns: 1fr; }
+      .market-card { min-height: 220px; }
+      .footer { gap: 12px; flex-wrap: wrap; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell topbar">
+    <a class="brand" href="#top" aria-label="TradeUK home">TradeUK<span class="brand-mark">.</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#markets">Markets</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="#markets">Explore markets <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="shell hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Independent trading business</p>
+        <h1 id="hero-title">TRADE<br>WITH<br>CLARITY.</h1>
+        <p class="hero-copy">A disciplined, research-led approach to navigating global markets. TradeUK is a trading business, not a financial advisory service.</p>
+        <div class="hero-actions">
+          <a class="button-primary" href="#markets">Explore Markets <span aria-hidden="true">↗</span></a>
+          <span class="hero-note">Independent. Focused. Disciplined.</span>
+        </div>
+      </div>
+      <div class="hero-visual" role="img" aria-label="Market data screens on a trading floor">
+        <div class="visual-index"><small>Market pulse</small><b>In focus</b><em>● Session overview</em></div>
+        <div class="visual-caption"><strong>Stay close to the signal.</strong>Insight for every session</div>
+      </div>
+    </section>
+
+    <section class="shell markets" id="markets" aria-labelledby="markets-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Areas of focus</p><h2 id="markets-title">Markets we follow</h2></div>
+        <p>Four asset classes. No promised outcomes.</p>
+      </div>
+      <div class="market-grid">
+        <article class="market-card">
+          <div class="market-top"><span>01 / Equities</span><span>Global</span></div>
+          <div class="market-symbol" aria-hidden="true">EQ</div>
+          <h3>Stocks</h3>
+          <p>Company shares and broad equity markets across regions and sectors.</p>
+          <span class="market-instruments">INDIVIDUAL SHARES &nbsp; / &nbsp; INDICES &nbsp; / &nbsp; ETFs</span>
+        </article>
+        <article class="market-card">
+          <div class="market-top"><span>02 / Currencies</span><span>Global</span></div>
+          <div class="market-symbol" aria-hidden="true">FX</div>
+          <h3>Forex</h3>
+          <p>Currency markets shaped by monetary policy, trade, and macro conditions.</p>
+          <span class="market-instruments">MAJORS &nbsp; / &nbsp; MINORS &nbsp; / &nbsp; CROSSES</span>
+        </article>
+        <article class="market-card">
+          <div class="market-top"><span>03 / Digital assets</span><span>24 / 7</span></div>
+          <div class="market-symbol" aria-hidden="true">CR</div>
+          <h3>Crypto</h3>
+          <p>Digital asset markets and the evolving infrastructure around them.</p>
+          <span class="market-instruments">DIGITAL ASSETS &nbsp; / &nbsp; BLOCKCHAIN ECOSYSTEMS</span>
+        </article>
+        <article class="market-card">
+          <div class="market-top"><span>04 / Raw materials</span><span>Global</span></div>
+          <div class="market-symbol" aria-hidden="true">CM</div>
+          <h3>Commodities</h3>
+          <p>Resources influenced by supply, demand, weather, and geopolitics.</p>
+          <span class="market-instruments">ENERGY &nbsp; / &nbsp; METALS &nbsp; / &nbsp; AGRICULTURE</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell about" id="about" aria-labelledby="about-title">
+      <div class="about-grid">
+        <div><p class="eyebrow">The TradeUK approach</p><h2 id="about-title">About TradeUK</h2></div>
+        <div class="about-copy">
+          <p>TradeUK is an independent trading business built around preparation, risk awareness, and a clear reading of market conditions. We focus on process over prediction and discipline over noise.</p>
+          <p>Our work is proprietary trading and market research. We do not provide investment recommendations, manage client funds, or offer financial advisory services. Market information shown here is illustrative and is not a promise of future results.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell contact" id="contact" aria-labelledby="contact-title">
+      <div><p class="eyebrow">Start a conversation</p><h2 id="contact-title">Contact TradeUK</h2></div>
+      <a class="contact-link" href="mailto:hello@tradeuk.example">hello@tradeuk.example <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+
+  <footer class="shell footer"><span>TradeUK. &copy; 2026</span><span>Trading business. Not financial advisory. Market figures are illustrative only.</span></footer>
+</body>
+</html>
