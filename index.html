@@ -45,8 +45,10 @@
       justify-content: space-between;
       border-bottom: 1px solid var(--line);
     }
-    .brand { display: inline-flex; align-items: center; font: 700 19px var(--display); letter-spacing: 0; }
-    .brand-mark { margin-left: 4px; color: var(--green); }
+    .brand { display: inline-flex; align-items: center; gap: 9px; font: 700 19px var(--display); letter-spacing: 0; }
+    .brand-symbol { display: block; width: 27px; height: 27px; flex: 0 0 27px; color: var(--green); }
+    .brand-symbol svg { display: block; width: 100%; height: 100%; }
+    .brand-mark { color: var(--green); }
     .nav { display: flex; gap: 34px; align-items: center; font-size: 13px; color: #b1bbb3; }
     .nav a:hover { color: var(--ink); }
     .nav-cta {
@@ -213,7 +215,16 @@
 </head>
 <body>
   <header class="shell topbar">
-    <a class="brand" href="#top" aria-label="TradeUK home">Trade<span class="brand-mark">UK</span></a>
+    <a class="brand" href="#top" aria-label="TradeUK home">
+      <span class="brand-symbol" aria-hidden="true">
+        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 22V6M4 22H24" stroke="currentColor" stroke-opacity=".28" stroke-width="1.4" />
+          <path d="m7 17 5-5 4 3 7-8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+          <circle cx="23" cy="7" r="2" fill="currentColor" />
+        </svg>
+      </span>
+      <span>Trade<span class="brand-mark">UK</span></span>
+    </a>
     <nav class="nav" aria-label="Main navigation">
       <a href="#markets">Markets</a>
       <a href="#about">About</a>
